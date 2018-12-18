@@ -1,0 +1,41 @@
+ 
+<div class="container">
+
+<div class="clearfix">
+ <div class="row">
+
+    <div class="col-lg-3">
+       <%= render 'books/list', book: @book %>
+    </div>
+
+
+
+    <div class="col-lg-9">
+        <h1>Books</h1>
+
+       <table class="table-hover table">
+
+         <thead>
+         <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+         </tr>
+         </thead>
+
+         <% @books.each do |book| %>
+         <tbody>
+         <tr>
+            <td><%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size: "50x50" %></td>
+            <td><%=link_to book.title, book_path(book.id), class: "text-muted book_#{book.id}" %></td>
+            <td><%= book.opinion %></td>
+         </tr>
+         </tbody>
+         <% end %>
+
+       </table>
+    </div>
+
+ </div>
+</div>
+</div>

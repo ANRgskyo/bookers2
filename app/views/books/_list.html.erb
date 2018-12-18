@@ -1,0 +1,66 @@
+
+<div class="list-page">
+
+  <div class="user-name">
+
+      <h1>User info</h1>
+
+
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg" %>
+
+
+        <table class="table">
+         <tbody>
+    　　  <tr>
+      　　  <th align="left">name</th>
+      　　  <th><%= @user.name %></th>
+    　　  </tr>
+    　　  <tr>
+      　　  <th align="left">introduction</th>
+      　　  <th><%= @user.introduction %></th>
+    　　  </tr>
+         </tbody>
+        </table>
+
+
+       <% if @user.id == current_user.id %>
+       <div class="row">
+         <%= link_to  edit_user_path(@user.id), class: "btn btn-default col-lg-12 edit_user_#{@user.id}" do %>
+         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+         <% end %>
+       </div>
+       <% else %>
+       <div class="row">
+         <%= link_to user_path(current_user.id), class: "btn btn-default col-lg-12 user_#{current_user.id}" do %>
+         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+         <% end %>
+       </div>
+       <% end %>
+
+  </div>
+
+  <!-- 新規投稿 -->
+
+  <div class="newbook">
+    <h1>New Book</h1>
+
+    <%= form_for(book) do |f| %>
+
+      <div class="row">
+        <h4>Title</h4>
+        <%= f.text_field :title, class: "book_title col-lg-12" %>
+      </div>
+
+      <div class="row">
+        <h4>Opinion</h4>
+        <%= f.text_area :opinion, class: "book_body col-lg-12" %>
+      </div>
+
+      <div class="action row">
+        <%= f.submit 'Create Book', class: "books btn btn-primary col-lg-12"%>
+      </div>
+    <% end %>
+  </div>
+ 
+</div>
+
