@@ -23,6 +23,7 @@
          </td>
          <td><div><%= @post.title %></div></td>
          <td><div><%= @post.opinion %></div></td>
+
          <% if @post.user == current_user %>
          <td><div><%= link_to "Edit", edit_book_path(@post.id), class: "btn btn-success btn-sm edit_book_#{@post.id}" %></div></td>
          <td><div><%= link_to "Destroy", book_path(@post.id), method: :delete, class: "btn btn-danger btn-sm destroy_book_#{@post.id}", "data-confirm" => "Are you sure？" %></div></td>
