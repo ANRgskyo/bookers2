@@ -23,13 +23,13 @@
           <% if user_signed_in? %>
 
             <li style="font-size: 15px;">
-              <%= link_to user_path(current_user.id), class: "user_#{current_user.id}" do %>
+              <%= link_to user_path(current_user.id), class: "home" do %>
               <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
               <apan class="">Home<span>
               <% end %>
             </li>
             <li style="font-size: 15px;">
-              <%= link_to users_path, class: "user" do %>
+              <%= link_to users_path, class: "users" do %>
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
               <span>User</span>
               <% end %>
